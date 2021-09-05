@@ -1,12 +1,130 @@
 //user-input
+
 var confirmCharacters;
 var confirmNumbers;
 var confirmLowercase;
 var confirmUppercase;
 var confirmSpecialCharacters;
 
+//various arrays
+var specialCharacters = [
+  "@",
+  "%",
+  "+",
+  "\\",
+  "/",
+  "'",
+  "!",
+  "#",
+  "$",
+  "^",
+  "?",
+  ":",
+  ",",
+  ")",
+  "(",
+  "}",
+  "{",
+  "]",
+  "[",
+  "~",
+  "-",
+  "_",
+  ".",
+];
+var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+var lowerCase = [
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+];
+var upperCase = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
+];
+
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+
+//Prompt to confirm how many characters the user would like in their password
+function generatePassword() {
+  var confirmCharacters = prompt(
+    "How many characters would you like in your password? Please choose between 8 and 128"
+  );
+  //if statement for character confirmation
+  if (!confirmCharacters) {
+    alert("This field cannot be blank, please choose between 8 and 128");
+  } else if (confirmCharacters < 8 || confirmCharacters > 128) {
+    alert("Please choose characters between 8 and 128");
+  } else {
+    confirmNumbers = confirm("Click ok if you want to include numbers");
+    confirmLowercase = confirm(
+      "Click ok if you want to include Lower case letters"
+    );
+    confirmUppercase = confirm(
+      "Click ok if you want to include Upper case letters"
+    );
+    confirmSpecialCharacters = confirm(
+      "Click ok if you want to include special characters"
+    );
+  }
+  //if statatement for the condition = user must select atleast one character type
+  if (
+    !confirmNumbers &&
+    !confirmLowercase &&
+    !confirmUppercase &&
+    !confirmSpecialCharacters
+  ) {
+    alert("Please choose atleast one character type");
+  }
+}
 
 // Write password to the #password input
 function writePassword() {
