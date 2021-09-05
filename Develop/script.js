@@ -124,6 +124,37 @@ function generatePassword() {
   ) {
     alert("Please choose atleast one character type");
   }
+  //if statement for the condition = user selects all 4 character types
+  else if (
+    confirmNumbers === true &&
+    confirmLowercase === true &&
+    confirmUppercase === true &&
+    confirmSpecialCharacters === true
+  ) {
+    return specialCharacters + numbers + lowerCase + upperCase;
+  }
+  //else if statement for the condition = user selects 3 character types
+  else if (
+    confirmNumbers === true &&
+    confirmLowercase === true &&
+    confirmUppercase === true
+  ) {
+    return numbers + lowerCase + upperCase;
+  } else if (
+    confirmNumbers === true &&
+    confirmLowercase === true &&
+    confirmSpecialCharacters === true
+  ) {
+    return numbers + lowerCase + specialCharacters;
+  } else if (
+    confirmNumbers === true &&
+    confirmUppercase === true &&
+    confirmSpecialCharacters === true
+  ) {
+    return numbers + upperCase + specialCharacters;
+  } else if (confirmLowercase && confirmUppercase && confirmSpecialCharacters) {
+    return lowerCase + upperCase + specialCharacters;
+  }
 }
 
 // Write password to the #password input
