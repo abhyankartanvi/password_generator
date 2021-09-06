@@ -131,7 +131,7 @@ function generatePassword() {
     confirmUppercase === true &&
     confirmSpecialCharacters === true
   ) {
-    return specialCharacters + numbers + lowerCase + upperCase;
+    return numbers + lowerCase + upperCase + specialCharacters;
   }
   //else if statement for the condition = user selects 3 character types
   else if (
@@ -154,6 +154,30 @@ function generatePassword() {
     return numbers + upperCase + specialCharacters;
   } else if (confirmLowercase && confirmUppercase && confirmSpecialCharacters) {
     return lowerCase + upperCase + specialCharacters;
+  }
+  //else if statement for the condition = user selects 2 character type (6 poss)
+  else if (confirmNumbers && confirmLowercase) {
+    return numbers + lowerCase;
+  } else if (confirmNumbers && confirmUppercase) {
+    return numbers + upperCase;
+  } else if (confirmNumbers && confirmSpecialCharacters) {
+    return numbers + specialCharacters;
+  } else if (confirmLowercase && confirmUppercase) {
+    return lowerCase + upperCase;
+  } else if (confirmLowercase && confirmSpecialCharacters) {
+    return lowerCase + specialCharacters;
+  } else if (confirmUppercase + confirmSpecialCharacters) {
+    return upperCase + specialCharacters;
+  }
+  //else if statement for the condition = user selects 1 character type (4 poss)
+  else if (confirmNumbers) {
+    return numbers;
+  } else if (confirmLowercase) {
+    return lowerCase;
+  } else if (confirmUppercase) {
+    return upperCase;
+  } else if (confirmSpecialCharacters) {
+    return specialCharacters;
   }
 }
 
